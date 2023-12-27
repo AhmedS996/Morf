@@ -24,11 +24,17 @@ class CommentController extends Controller
     {
         //
     }
+    public function increaseLikes(Request $request, Comment $comment)
+    {
+        $comment->update(['like' => $comment->like + 1]);
+
+        return redirect()->back()->with('success', 'Comment liked successfully.');
+    }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Post $post)
     {
         $request->validate([
             'content' => 'required',
@@ -40,6 +46,7 @@ class CommentController extends Controller
             'like' => 0, // You can set a default value for likes
         ]);
 
+        // Associate the comment with the post
         $post->comments()->save($comment);
 
         return redirect()->back()->with('success', 'Comment added successfully.');

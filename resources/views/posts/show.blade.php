@@ -17,7 +17,7 @@
             <form action="{{ route('posts.increaseLikes', ['post' => $post->id]) }}" method="post">
                 @csrf
                 @method('patch')
-                <button type="submit" class="btn btn-primary">Increase Likes</button>
+                <button type="submit" class="btn btn-primary"><i class="fa-regular fa-thumbs-up"></i></button>
             </form>
         </div>
     </div>
@@ -26,12 +26,25 @@
     <div class="card mt-3">
         <div class="card-body">
             <h3>Comments</h3>
+            <hr>
             @forelse ($post->comments as $comment)
-                <div>
+                <div class="comment-container">
                     <p>{{ $comment->content }}</p>
-                    <p>Likes: {{ $comment->like }}</p>
+                    <p>Likes: <span id="likeCount-comment-{{ $comment->id }}">{{ $comment->like }}</span></p>
                     <!-- Add more details as needed -->
+
+                    <!-- Button to increase likes for the comment -->
+                    <form action="{{ route('comments.increaseLikes', ['comment' => $comment->id]) }}" method="post">
+                        @csrf
+                        @method('patch')
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                        </button>
+                    </form>
                 </div>
+                @unless($loop->last)
+                    <hr class="comment-divider">
+                @endunless
             @empty
                 <p>No comments yet.</p>
             @endforelse
@@ -42,7 +55,7 @@
     <div class="card mt-3">
         <div class="card-body">
             <h3>Add a Comment</h3>
-            <form action="{{ route('comments.store', ['post' => $post->id]) }}" method="post">
+            <form action="{{ route('posts.comments.store', ['post' => $post->id]) }}" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="content">Content:</label>

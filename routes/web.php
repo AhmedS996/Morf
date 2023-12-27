@@ -25,7 +25,8 @@ Route::resource('posts', PostController::class);
 Route::patch('posts/{post}/increase-likes', [PostController::class, 'increaseLikes'])->name('posts.increaseLikes');
 
 // Resource route for comments (only the 'store' method)
-Route::resource('comments', CommentController::class)->only(['store']);
+Route::resource('posts.comments', CommentController::class)->only(['store']);
+Route::patch('comments/{comment}/increase-likes', [CommentController::class, 'increaseLikes'])->name('comments.increaseLikes');
 
 
 
