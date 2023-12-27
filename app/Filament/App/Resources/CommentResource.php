@@ -22,6 +22,8 @@ class CommentResource extends Resource
 
     protected static ?string $navigationGroup = 'Posts information';
 
+    protected static ?string $navigationLabel = 'My Comments';
+
     protected static ?int $navigationSort = 2;
 
     public static function getNavigationBadge(): string

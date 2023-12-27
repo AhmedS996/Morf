@@ -28,6 +28,9 @@ class AppPanelProvider extends PanelProvider
             ->path('user')
             ->login()
             ->registration()
+            ->font('Poppins')
+            ->brandLogo(asset('images/Logo.jpeg'))
+            ->favicon(asset('images/Logo.jpeg'))
             ->colors([
                 'primary' => Color::Blue,
             ])

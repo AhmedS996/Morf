@@ -22,6 +22,8 @@ class UserResource extends Resource
 
     protected static ?string $navigationGroup = 'Users information';
 
+    protected static ?string $navigationLabel = 'My info';
+
     protected static ?int $navigationSort = 0;
 
     public static function getNavigationBadge(): string
