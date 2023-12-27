@@ -22,6 +22,8 @@ class PostResource extends Resource
 
     protected static ?string $navigationGroup = 'Posts information';
 
+    protected static ?string $navigationLabel = 'My Posts';
+
     protected static ?int $navigationSort = 1;
 
 
@@ -42,8 +44,7 @@ class PostResource extends Resource
         $userId = $user->id;
         return $form
             ->schema([
-                Forms\Components\Select::make('user_id')
-                ->relationship('user', 'name')
+                Forms\Components\Hidden::make('user_id')
                 ->default($userId)
                 ->required(),
             Forms\Components\TextInput::make('title')
@@ -53,6 +54,10 @@ class PostResource extends Resource
                 ->required()
                 ->maxLength(65535)
                 ->columnSpanFull(),
+            ])->columns([
+                // Add the created_at and updated_at fields here
+                Forms\Components\DateTimePicker::make('created_at')->default(now())->hidden(),
+                Forms\Components\DateTimePicker::make('updated_at')->default(now())->hidden(),
             ]);
     }
 
@@ -90,6 +95,7 @@ class PostResource extends Resource
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
@@ -111,6 +117,7 @@ class PostResource extends Resource
         return [
             'index' => Pages\ListPosts::route('/'),
             'create' => Pages\CreatePost::route('/create'),
+            'view' => Pages\ViewPost::route('/{record}'),
             'edit' => Pages\EditPost::route('/{record}/edit'),
         ];
     }
