@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Define a separate route for the home page
+Route::resource('/',PostController::class);
+
+// Resource route for posts
+Route::resource('posts', PostController::class);
+
+// Custom route to increase likes for a post
+Route::patch('posts/{post}/increase-likes', [PostController::class, 'increaseLikes'])->name('posts.increaseLikes');
+
+// Resource route for comments (only the 'store' method)
+Route::resource('posts.comments', CommentController::class)->only(['store']);
+Route::patch('comments/{comment}/increase-likes', [CommentController::class, 'increaseLikes'])->name('comments.increaseLikes');
+
+
+
+
