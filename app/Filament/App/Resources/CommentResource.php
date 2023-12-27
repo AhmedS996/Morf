@@ -60,6 +60,8 @@ class CommentResource extends Resource
             Tables\Columns\TextColumn::make('post.title')
                 ->numeric()
                 ->sortable(),
+            Tables\Columns\TextColumn::make('content')
+                ->sortable(),
             Tables\Columns\TextColumn::make('like')
                 ->numeric()
                 ->sortable(),
