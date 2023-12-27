@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\App\Resources;
 
-use App\Filament\Resources\UserResource\Pages;
-use App\Filament\Resources\UserResource\RelationManagers;
+use App\Filament\App\Resources\UserResource\Pages;
+use App\Filament\App\Resources\UserResource\RelationManagers;
 use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -26,48 +26,47 @@ class UserResource extends Resource
 
     public static function getNavigationBadge(): string
     {
-        return static::getModel():: count();
+        $user = Auth::user();
+        $userId = $user->id;
+
+        // Count the comments for the current user
+        $commentCount = static::getModel()::where('id', $userId)->count();
+
+        return (string)$commentCount;
     }
+
     public static function form(Form $form): Form
     {
-
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('email')
-                    ->email()
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\DateTimePicker::make('email_verified_at'),
-                Forms\Components\TextInput::make('password')
-                    ->password()
-                    ->required()
-                    ->maxLength(255),
+                //
             ]);
     }
 
     public static function table(Table $table): Table
     {
-
+        $user = Auth::user();
+        $userId = $user->id;
         return $table
+        ->modifyQueryUsing(function (Builder $query) use ($userId) {
+            $query->where('id', $userId);
+        })
             ->columns([
                 Tables\Columns\TextColumn::make('name')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('email')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('email_verified_at')
-                    ->dateTime()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                ->searchable(),
+            Tables\Columns\TextColumn::make('email')
+                ->searchable(),
+            Tables\Columns\TextColumn::make('email_verified_at')
+                ->dateTime()
+                ->sortable(),
+            Tables\Columns\TextColumn::make('created_at')
+                ->dateTime()
+                ->sortable()
+                ->toggleable(isToggledHiddenByDefault: true),
+            Tables\Columns\TextColumn::make('updated_at')
+                ->dateTime()
+                ->sortable()
+                ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //

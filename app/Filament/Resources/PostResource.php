@@ -33,11 +33,8 @@ class PostResource extends Resource
     public static function form(Form $form): Form
     {
 
-        $currentUser = auth()->user();
         return $form
-        ->query(function (Builder $query) use ($currentUser) {
-            $query->where('user_id', $currentUser->id);
-        })
+
             ->schema([
                 Forms\Components\Select::make('user_id')
                     ->relationship('user', 'name')
@@ -79,7 +76,7 @@ class PostResource extends Resource
                 Tables\Columns\TextColumn::make('view')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('posted_at')
+                Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('updated_at')
