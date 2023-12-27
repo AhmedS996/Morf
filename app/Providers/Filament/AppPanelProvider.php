@@ -5,6 +5,7 @@ namespace App\Providers\Filament;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\MenuItem;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -31,6 +32,9 @@ class AppPanelProvider extends PanelProvider
             ->font('Poppins')
             ->brandLogo(asset('images/Logo.jpeg'))
             ->favicon(asset('images/Logo.jpeg'))
+            ->userMenuItems([
+                MenuItem::make()->label('home')->icon('heroicon-o-home')->url('/')
+            ])
             ->colors([
                 'primary' => Color::Blue,
             ])
