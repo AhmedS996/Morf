@@ -18,6 +18,10 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
             <a class="navbar-brand" href="{{ route('index') }}">Morf</a>
 
+        @auth
+        <p class="text-white">Welcome {{ auth()->user()->name }}</p>
+        @endauth
+
             <!-- Navbar Toggler Button for Small Screens -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -25,8 +29,6 @@
 
             <!-- Navbar Links -->
             <div class="collapse navbar-collapse" id="navbarNav">
-
-
                 <!-- Right-aligned navigation link (e.g., Account) -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -37,7 +39,7 @@
         </nav>
     </header>
 
-    <main>
+    <main style="padding-top: 56px;"> <!-- Add padding to the top to account for the fixed navigation bar -->
         <div class="container">
             @yield('content')
         </div>

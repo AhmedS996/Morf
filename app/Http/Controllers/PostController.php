@@ -13,13 +13,16 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
-        $title = $request->input('title');
+        $title = $request->input('title', '');
+    $filter = $request->input('filter', '');
 
-        $posts = Post::when($title, function ($query, $title) {
-            return $query->where('title', $title);
-        })
-        ->latest() // Order by creation date in descending order (latest first)
-        ->get();
+    // Get the posts with the selected filter and title
+    $posts = Post::applyFilter($filter)
+                  ->when($title, function ($query) use ($title) {
+                      return $query->title($title);
+                  })
+                  ->latest()
+                  ->get();
 
         return view('posts.index', compact('posts'));
 
