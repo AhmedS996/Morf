@@ -55,4 +55,9 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
+    public function isAdmin(): bool
+    {
+        return $this->email === 'admin@admin.com';
+    }
+
 }
