@@ -10,7 +10,6 @@
     <!-- Include Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Include your custom external CSS -->
-    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e2bed88b0f.js" crossorigin="anonymous"></script>
 </head>
 <body>
