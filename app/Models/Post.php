@@ -31,7 +31,7 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public function scopeTitle(Builder $query, string $title): Builder
+    public function scopeTitle( $query, string $title)
     {
         return $query->where('title', 'LIKE', '%' . $title . '%');
     }
