@@ -12,7 +12,7 @@ The project is a website that users can posts and they have panel provider to ed
 ### Admin panel
 
 <div align="center">
-  <img src="media/adminPanel.png" width="75%" alt="Ghidaq Home page">
+  <img src="media/adminPanel.png" width="75%" alt="Admin panel">
 </div>
 In the admin panel, you have access to all logged-in users, posts, and comments. You can perform actions such as deletion and view dashboard widgets.
 
@@ -23,7 +23,7 @@ In the admin panel, you have access to all logged-in users, posts, and comments.
 ### User panel
 
 <div align="center">
-  <img src="media/UserPanel.png" width="75%" alt="Register page">
+  <img src="media/UserPanel.png" width="75%" alt="User panel">
 </div>
 In the user panel, you can view your own user information, posts, and comments. You have the ability to edit or delete them and view personalized widgets.
 
@@ -32,7 +32,7 @@ In the user panel, you can view your own user information, posts, and comments. 
 ### Home page
 
 <div align="center">
-  <img src="media/homePage.pngf" width="75%" alt="Register page">
+  <img src="media/homePage.png" width="75%" alt="Home page">
 </div>
 On the home page, you can explore all the latest posts, perform searches, apply filters, and view user details.
 
@@ -41,7 +41,7 @@ On the home page, you can explore all the latest posts, perform searches, apply 
 ### Post details
 
 <div align="center">
-  <img src="media/PostDetails.gif" width="75%" alt="Register page">
+  <img src="media/PostDetails.gif" width="75%" alt="post details">
 </div>
 In post details, you can explore the complete content of a post. Interact by liking the post, viewing comments, and adding new comments. Other users can also like your comments.
 
@@ -52,7 +52,7 @@ In post details, you can explore the complete content of a post. Interact by lik
 ### Search
 
 <div align="center">
-  <img src="media/search.gif" width="75%" alt="Login page">
+  <img src="media/search.gif" width="75%" alt="Search">
 </div>
 Search for posts using the search functionality. Enter keywords, and the system will display relevant posts.
 
@@ -61,7 +61,7 @@ Search for posts using the search functionality. Enter keywords, and the system 
 ### Filtering
 
 <div align="center">
-  <img src="media/filtering.gif" width="75%" alt="Login page">
+  <img src="media/filtering.gif" width="75%" alt="Filtering">
 </div>
 Filter posts based on different criteria such as the latest, most views, and most likes.
 
@@ -72,7 +72,7 @@ Filter posts based on different criteria such as the latest, most views, and mos
 ### Sign in
 
 <div align="center">
-  <img src="media//lgoin.png" width="75%" alt="Login page">
+  <img src="media//lgoin.png" width="75%" alt="Sign in">
 </div>
 To sign in, click on the account button on the home page. If not signed in, you will be directed to the sign-in page.
 
@@ -81,7 +81,7 @@ To sign in, click on the account button on the home page. If not signed in, you 
 ### Registration
 
 <div align="center">
-  <img src="media//register.png" width="75%" alt="Register page">
+  <img src="media//register.png" width="75%" alt="Registeration">
 </div>
 To register you will go to register form and fill the form and will route the user to his panel first .
 
