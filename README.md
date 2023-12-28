@@ -1,7 +1,3 @@
-<div align="center">
-  <img src="media/Logo.jpeg" width="75%" alt="Ghidaq Home page">
-</div>
-
 # About Morf webiste
 
 The project is a website that users can posts and they have panel provider to edit and delete there posts and the other users can comments and likes the posts and also we have admin panel that can see all the users and posts and comments in the webiste
