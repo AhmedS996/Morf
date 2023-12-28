@@ -33,7 +33,7 @@
             <hr>
             @forelse ($post->comments as $comment)
                 <div class="comment-container shadow p-4">
-                    <p class="text-muted">Commented by: {{ auth()->user()->name }}</p>
+                    <p class="text-muted">Commented by: {{ $comment->user->name }}</p>
                     <hr>
                     <p>{{ $comment->content }}</p>
                     <p>Likes: <span id="likeCount-comment-{{ $comment->id }}">{{ $comment->like }}</span></p>
